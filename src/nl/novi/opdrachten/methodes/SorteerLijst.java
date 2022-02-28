@@ -1,6 +1,8 @@
 package nl.novi.opdrachten.methodes;
 
 
+import nl.novi.opdrachten.lijsten.ListOefening;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +28,38 @@ public class SorteerLijst {
 
         List<Integer> wrongList = new ArrayList<>(Arrays.asList(1, 2, 4, 5, 6, 7, 8));
         List<Integer> correctList = new ArrayList<>(Arrays.asList(88, 888, 909909));
+        List<Integer> correctList2 = new ArrayList<>(Arrays.asList(9999, 888, 909909));
 
+        System.out.println(hasThreeEntries(correctList2));
+
+    }
+
+    public static List<Integer> hasThreeEntries(List<Integer> list) {
+        List<Integer> originalList = list;
+        List<Integer> sortedList = new ArrayList<>();
+        if (list.size() == 3) {
+            System.out.println("De lijst heeft 3 getallen.");
+
+            while (originalList.size() > 0) {
+                int minNumber = list.get(0);
+                for (int i = 0; i < list.size(); i++) {
+                    int currentNumber = list.get(i);
+                    if (currentNumber < minNumber) {
+                        minNumber = currentNumber;
+                    }
+                }
+                sortedList.add(minNumber);
+                originalList.remove(originalList.indexOf(minNumber));
+            }
+
+        } else {
+            if (list.size() < 3) {
+                System.out.println("Er zijn te weinig getallen in de lijst.");
+            } else {
+                System.out.println("Er zijn te veel getallen in de lijst.");
+            }
+        }
+        return sortedList;
     }
 
 }

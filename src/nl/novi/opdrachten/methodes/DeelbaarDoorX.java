@@ -1,5 +1,7 @@
 package nl.novi.opdrachten.methodes;
 
+import nl.novi.uitleg.week2.io.Main;
+
 /**
  * Schrijf een methode die twee Integers ontvangt.
  * De eerste parameter heet 'number', de tweede 'divisible'
@@ -24,4 +26,27 @@ package nl.novi.opdrachten.methodes;
  */
 
 public class DeelbaarDoorX {
+    public static void main(String[] args) {
+        checkDivisible(14, 3);
+    }
+
+    public static void checkDivisible(int number, int divisible) {
+
+        if (number % divisible > 0) {
+            System.out.println("Het getal: " + number + " is niet deelbaar door " + divisible);
+
+            int lowerDistance = number % divisible;
+            int upperDistance = number - number % divisible + divisible - number;
+
+            if (lowerDistance < upperDistance) {
+                System.out.println("Verlaag het getal met " + lowerDistance);
+            } else {
+                System.out.println("Verhoog het getal met " + upperDistance);
+            }
+        } else {
+            System.out.println("Het getal: " + number + " is deelbaar door " + divisible);
+        }
+    }
 }
+
+

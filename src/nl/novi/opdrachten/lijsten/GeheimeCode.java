@@ -3,7 +3,7 @@ package nl.novi.opdrachten.lijsten;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeheimeCode {
+public class  GeheimeCode {
 
     public static void main(String[] secret) {
 
@@ -37,7 +37,9 @@ public class GeheimeCode {
     }
 
     private static List<String> addMembers(List<String> members, String name) {
-        members.add(name);
+        if (!members.contains(name)) {
+            members.add(name);
+        }
         return members;
     }
 }
